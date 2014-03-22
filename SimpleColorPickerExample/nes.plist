@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Retro</string>
+	<key>colors</key>
+	<array>
+		<string>#FFFFFF</string>
+		<string>#B0B0B0</string>
+		<string>#A0A0A0</string>
+		<string>#787878</string>
+		<string>#000000</string>
+		<string>#2000B0</string>
+		<string>#2800B8</string>
+		<string>#6010A0</string>
+		<string>#982078</string>
+		<string>#B01030</string>
+		<string>#A03000</string>
+		<string>#784000</string>
+		<string>#485800</string>
+		<string>#386800</string>
+		<string>#386C00</string>
+		<string>#306040</string>
+		<string>#305080</string>
+		<string>#4060F8</string>
+		<string>#4040FF</string>
+		<string>#9040F0</string>
+		<string>#D840C0</string>
+		<string>#D84060</string>
+		<string>#E05000</string>
+		<string>#C07000</string>
+		<string>#888800</string>
+		<string>#50A000</string>
+		<string>#48A810</string>
+		<string>#48A068</string>
+		<string>#4090C0</string>
+		<string>#60A0FF</string>
+		<string>#5080FF</string>
+		<string>#A070FF</string>
+		<string>#F060FF</string>
+		<string>#FF60B0</string>
+		<string>#FF7830</string>
+		<string>#FFA000</string>
+		<string>#E8D020</string>
+		<string>#98E800</string>
+		<string>#70F040</string>
+		<string>#70E090</string>
+		<string>#60D0E0</string>
+		<string>#90D0FF</string>
+		<string>#A0B8FF</string>
+		<string>#C0B0FF</string>
+		<string>#E0B0FF</string>
+		<string>#FFB8E8</string>
+		<string>#FFC8B8</string>
+		<string>#FFD8A0</string>
+		<string>#FFF090</string>
+		<string>#C8F080</string>
+		<string>#A0F0A0</string>
+		<string>#A0FFC8</string>
+		<string>#A0FFF0</string>
+	</array>
+</dict>
+</plist>
