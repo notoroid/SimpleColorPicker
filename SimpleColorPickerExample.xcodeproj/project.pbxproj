@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		87795FB418DDFC7A0075438B /* websafecolor216.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87795FB318DDFC7A0075438B /* websafecolor216.plist */; };
 		87795FB618DDFDE30075438B /* nes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87795FB518DDFDE30075438B /* nes.plist */; };
+		878FF59218DE0A1700A10947 /* libSimpleColorPicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 878FF59118DE0A1700A10947 /* libSimpleColorPicker.a */; };
 		87AC482A18DDEC9000E38CC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87AC482918DDEC9000E38CC3 /* Foundation.framework */; };
 		87AC482C18DDEC9000E38CC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87AC482B18DDEC9000E38CC3 /* CoreGraphics.framework */; };
 		87AC482E18DDEC9000E38CC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87AC482D18DDEC9000E38CC3 /* UIKit.framework */; };
@@ -23,7 +24,6 @@
 		87AC484B18DDEC9000E38CC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87AC482D18DDEC9000E38CC3 /* UIKit.framework */; };
 		87AC485318DDEC9000E38CC3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 87AC485118DDEC9000E38CC3 /* InfoPlist.strings */; };
 		87AC485518DDEC9000E38CC3 /* SimpleColorPickerExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 87AC485418DDEC9000E38CC3 /* SimpleColorPickerExampleTests.m */; };
-		87B8FBA518DDF5A4002A8E7E /* libSimpleColorPicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87B8FBA418DDF5A4002A8E7E /* libSimpleColorPicker.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,9 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		871F5D9D18DDF4BF0023376A /* libSimpleColorPicker.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSimpleColorPicker.a; path = "../build/Debug-iphoneos/libSimpleColorPicker.a"; sourceTree = "<group>"; };
 		87795FB318DDFC7A0075438B /* websafecolor216.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = websafecolor216.plist; sourceTree = "<group>"; };
 		87795FB518DDFDE30075438B /* nes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = nes.plist; sourceTree = "<group>"; };
+		878FF59118DE0A1700A10947 /* libSimpleColorPicker.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSimpleColorPicker.a; path = "build/Debug-iphoneos/libSimpleColorPicker.a"; sourceTree = "<group>"; };
 		87AC482618DDEC9000E38CC3 /* SimpleColorPickerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleColorPickerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87AC482918DDEC9000E38CC3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		87AC482B18DDEC9000E38CC3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -59,7 +59,6 @@
 		87AC485018DDEC9000E38CC3 /* SimpleColorPickerExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SimpleColorPickerExampleTests-Info.plist"; sourceTree = "<group>"; };
 		87AC485218DDEC9000E38CC3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		87AC485418DDEC9000E38CC3 /* SimpleColorPickerExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleColorPickerExampleTests.m; sourceTree = "<group>"; };
-		87B8FBA418DDF5A4002A8E7E /* libSimpleColorPicker.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSimpleColorPicker.a; path = "build/Debug-iphoneos/libSimpleColorPicker.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87B8FBA518DDF5A4002A8E7E /* libSimpleColorPicker.a in Frameworks */,
+				878FF59218DE0A1700A10947 /* libSimpleColorPicker.a in Frameworks */,
 				87AC482C18DDEC9000E38CC3 /* CoreGraphics.framework in Frameworks */,
 				87AC482E18DDEC9000E38CC3 /* UIKit.framework in Frameworks */,
 				87AC482A18DDEC9000E38CC3 /* Foundation.framework in Frameworks */,
@@ -109,8 +108,7 @@
 		87AC482818DDEC9000E38CC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				87B8FBA418DDF5A4002A8E7E /* libSimpleColorPicker.a */,
-				871F5D9D18DDF4BF0023376A /* libSimpleColorPicker.a */,
+				878FF59118DE0A1700A10947 /* libSimpleColorPicker.a */,
 				87AC482918DDEC9000E38CC3 /* Foundation.framework */,
 				87AC482B18DDEC9000E38CC3 /* CoreGraphics.framework */,
 				87AC482D18DDEC9000E38CC3 /* UIKit.framework */,
@@ -393,7 +391,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SimpleColorPickerExample/SimpleColorPickerExample-Prefix.pch";
 				INFOPLIST_FILE = "SimpleColorPickerExample/SimpleColorPickerExample-Info.plist";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
@@ -409,7 +410,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SimpleColorPickerExample/SimpleColorPickerExample-Prefix.pch";
 				INFOPLIST_FILE = "SimpleColorPickerExample/SimpleColorPickerExample-Info.plist";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/**";
