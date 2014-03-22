@@ -104,7 +104,7 @@ static NSDictionary *s_paletteColor = nil;
     _selectedIndex = _colorPatterns.count <= _selectedIndex ? (_colorPatterns.count -1) : _selectedIndex;
     _segment.selectedSegmentIndex = _selectedIndex;
     
-    
+    [self.tableView reloadData];
     self.tableView.contentOffset = CGPointMake(0, _contentOffsetY);
 }
 
@@ -271,7 +271,6 @@ typedef void (^ColorPalletURenderBlock)(IDPSimpleColorPaletteCell *cell,UIButton
     };
 
     NSInteger begin = indexPath.row *4;
-    NSLog(@"begin=%@",@(begin));
     NSInteger end = palette.count < (begin + 4) ? palette.count : (begin + 4);
 
     NSArray *buttons = @[[cell viewWithTag:1]
