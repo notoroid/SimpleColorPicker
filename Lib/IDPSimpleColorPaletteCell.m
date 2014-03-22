@@ -14,7 +14,21 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(1.0f, 1.0f, 78.0f, 78.0f)];
+        button.tag = 1;
+        [self addSubview:button];
+        
+        /*UIButton **/button = [[UIButton alloc] initWithFrame:CGRectMake(81.0f, 1.0f, 78.0f, 78.0f)];
+        button.tag = 2;
+        [self addSubview:button];
+
+        /*UIButton **/button = [[UIButton alloc] initWithFrame:CGRectMake(161.0f, 1.0f, 78.0f, 78.0f)];
+        button.tag = 3;
+        [self addSubview:button];
+
+        /*UIButton **/button = [[UIButton alloc] initWithFrame:CGRectMake(241.0f, 1.0f, 78.0f, 78.0f)];
+        button.tag = 4;
+        [self addSubview:button];
     }
     return self;
 }

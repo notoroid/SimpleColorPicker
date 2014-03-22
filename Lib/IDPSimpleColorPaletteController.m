@@ -8,9 +8,9 @@
 
 #import "IDPSimpleColorPaletteController.h"
 #import "IDPSimpleColorPaletteCell.h"
-#import "NSString+IDPWebColor.h"
 
 static NSInteger s_revision = 0;
+static NSDictionary *s_paletteColor = nil;
 
 @interface IDPSimpleColorPaletteController ()
 {
@@ -63,7 +63,7 @@ static NSInteger s_revision = 0;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     // Cellを登録
-    [self.tableView registerNib:[UINib nibWithNibName:@"IDPSimpleColorPaletteCell" bundle:nil] forCellReuseIdentifier:@"cellColorPalette"];
+    [self.tableView registerClass:[IDPSimpleColorPaletteCell class] forCellReuseIdentifier:@"cellColorPalette"];
         // リソースを登録
     
     if( _colorPatterns == nil ){
@@ -154,6 +154,52 @@ typedef void (^ColorPalletURenderBlock)(IDPSimpleColorPaletteCell *cell,UIButton
     return palette;
 }
 
+- (UIColor *)colorWithWebColor:(NSString *)webColor
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        s_paletteColor = @{  @"0":@0
+                             ,@"1":@1
+                             ,@"2":@2
+                             ,@"3":@3
+                             ,@"4":@4
+                             ,@"5":@5
+                             ,@"6":@6
+                             ,@"7":@7
+                             ,@"8":@8
+                             ,@"9":@9
+                             ,@"A":@10
+                             ,@"B":@11
+                             ,@"C":@12
+                             ,@"D":@13
+                             ,@"E":@14
+                             ,@"F":@15
+                             };
+    });
+    
+    double red = .0f;
+    double green =  .0f;
+    double blue =  .0f;
+    
+    if( webColor.length == 7 ){
+        /*double*/ red = ([s_paletteColor[[webColor substringWithRange:NSMakeRange(1, 1)]] doubleValue] * 16
+                          + [s_paletteColor[[webColor substringWithRange:NSMakeRange(2, 1)]] doubleValue]) / 255.0f;
+        
+        /*double*/ green = ([s_paletteColor[[webColor substringWithRange:NSMakeRange(3, 1)]] doubleValue] * 16
+                            + [s_paletteColor[[webColor substringWithRange:NSMakeRange(4, 1)]] doubleValue]) / 255.0f;
+        
+        /*double*/ blue = ([s_paletteColor[[webColor substringWithRange:NSMakeRange(5, 1)]] doubleValue] * 16
+                           + [s_paletteColor[[webColor substringWithRange:NSMakeRange(6, 1)]] doubleValue]) / 255.0f;
+    }else if(webColor.length == 4){
+        /*double*/ red = ([s_paletteColor[[webColor substringWithRange:NSMakeRange(1, 1)]] doubleValue] * 16) / 255.0f;
+        /*double*/ green = ([s_paletteColor[[webColor substringWithRange:NSMakeRange(2, 1)]] doubleValue] * 16) / 255.0f;
+        /*double*/ blue = ([s_paletteColor[[webColor substringWithRange:NSMakeRange(3, 1)]] doubleValue] * 16) / 255.0f;
+    }
+    
+    
+    return [UIColor colorWithRed:red green:green blue:blue alpha:1.0f];
+}
+
 - (void) configureCell:(UITableViewCell *)cell indexPath:(NSIndexPath *)indexPath
 {
     s_revision++;
@@ -242,7 +288,7 @@ typedef void (^ColorPalletURenderBlock)(IDPSimpleColorPaletteCell *cell,UIButton
         
         UIButton *button = buttons[i-begin];
         NSString *colorString = palette[i];
-        render(simpleColorPaletteCell,button,[colorString color] );
+        render(simpleColorPaletteCell,button,[self colorWithWebColor:colorString] );
         
         [button addTarget:self action:@selector(firedSelectPallet:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -277,7 +323,7 @@ typedef void (^ColorPalletURenderBlock)(IDPSimpleColorPaletteCell *cell,UIButton
                 NSArray *palette = [self selectedPalletWithIndexPath:indexPath];
                 NSString *colorString = palette[begin + index];
                 
-                [_delegate IDPSimpleColorPaletteControllerDidSelectColor:[colorString color] colorString:colorString];
+                [_delegate IDPSimpleColorPaletteControllerDidSelectColor:[self colorWithWebColor:colorString] colorString:colorString];
                 break;
             }
         }
