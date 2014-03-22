@@ -102,7 +102,7 @@
     NSURL *URLNES = [[NSBundle mainBundle] URLForResource:@"nes" withExtension:@"plist"];
     NSDictionary *dicURLNES = [NSDictionary dictionaryWithContentsOfURL:URLNES];
     
-    colorPaletteController.colorPatterns = @[dicWebSafeColor216/*,dicURLNES*/];
+    colorPaletteController.colorPatterns = @[dicWebSafeColor216,dicURLNES];
     
     
     
