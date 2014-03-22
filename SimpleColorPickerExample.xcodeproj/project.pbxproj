@@ -21,7 +21,9 @@
 		872BC2D018DE149F0034A3FA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 872BC2B218DE149F0034A3FA /* UIKit.framework */; };
 		872BC2D818DE149F0034A3FA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 872BC2D618DE149F0034A3FA /* InfoPlist.strings */; };
 		872BC2DA18DE149F0034A3FA /* SimpleColorPickerExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 872BC2D918DE149F0034A3FA /* SimpleColorPickerExampleTests.m */; };
-		87F9604A18DE172C001C640A /* libSimpleColorPicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F9604918DE172C001C640A /* libSimpleColorPicker.a */; };
+		87B9C27818DE2DFA00018027 /* IDPColorChangeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B9C27518DE2DFA00018027 /* IDPColorChangeTransition.m */; };
+		87B9C27918DE2DFA00018027 /* IDPSimpleColorPaletteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B9C27618DE2DFA00018027 /* IDPSimpleColorPaletteCell.m */; };
+		87B9C27A18DE2DFA00018027 /* IDPSimpleColorPaletteController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87B9C27718DE2DFA00018027 /* IDPSimpleColorPaletteController.m */; };
 		87F9604D18DE175D001C640A /* nes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87F9604B18DE175D001C640A /* nes.plist */; };
 		87F9604E18DE175D001C640A /* websafecolor216.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87F9604C18DE175D001C640A /* websafecolor216.plist */; };
 /* End PBXBuildFile section */
@@ -56,6 +58,12 @@
 		872BC2D518DE149F0034A3FA /* SimpleColorPickerExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SimpleColorPickerExampleTests-Info.plist"; sourceTree = "<group>"; };
 		872BC2D718DE149F0034A3FA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		872BC2D918DE149F0034A3FA /* SimpleColorPickerExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleColorPickerExampleTests.m; sourceTree = "<group>"; };
+		87B9C27518DE2DFA00018027 /* IDPColorChangeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDPColorChangeTransition.m; path = Lib/IDPColorChangeTransition.m; sourceTree = SOURCE_ROOT; };
+		87B9C27618DE2DFA00018027 /* IDPSimpleColorPaletteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDPSimpleColorPaletteCell.m; path = Lib/IDPSimpleColorPaletteCell.m; sourceTree = SOURCE_ROOT; };
+		87B9C27718DE2DFA00018027 /* IDPSimpleColorPaletteController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDPSimpleColorPaletteController.m; path = Lib/IDPSimpleColorPaletteController.m; sourceTree = SOURCE_ROOT; };
+		87B9C27B18DE2E0C00018027 /* IDPColorChangeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDPColorChangeTransition.h; path = Lib/IDPColorChangeTransition.h; sourceTree = SOURCE_ROOT; };
+		87B9C27C18DE2E0C00018027 /* IDPSimpleColorPaletteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDPSimpleColorPaletteCell.h; path = Lib/IDPSimpleColorPaletteCell.h; sourceTree = SOURCE_ROOT; };
+		87B9C27D18DE2E0C00018027 /* IDPSimpleColorPaletteController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDPSimpleColorPaletteController.h; path = Lib/IDPSimpleColorPaletteController.h; sourceTree = SOURCE_ROOT; };
 		87F9604918DE172C001C640A /* libSimpleColorPicker.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSimpleColorPicker.a; path = "../../Library/Developer/Xcode/DerivedData/SimpleColorPicker-ddqxkxukxjwfgvejtaoammvwdqsk/Build/Products/Debug-iphoneos/libSimpleColorPicker.a"; sourceTree = "<group>"; };
 		87F9604B18DE175D001C640A /* nes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = nes.plist; sourceTree = "<group>"; };
 		87F9604C18DE175D001C640A /* websafecolor216.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = websafecolor216.plist; sourceTree = "<group>"; };
@@ -66,7 +74,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87F9604A18DE172C001C640A /* libSimpleColorPicker.a in Frameworks */,
 				872BC2B118DE149F0034A3FA /* CoreGraphics.framework in Frameworks */,
 				872BC2B318DE149F0034A3FA /* UIKit.framework in Frameworks */,
 				872BC2AF18DE149F0034A3FA /* Foundation.framework in Frameworks */,
@@ -121,6 +128,12 @@
 			isa = PBXGroup;
 			children = (
 				872BC2BD18DE149F0034A3FA /* AppDelegate.h */,
+				87B9C27518DE2DFA00018027 /* IDPColorChangeTransition.m */,
+				87B9C27B18DE2E0C00018027 /* IDPColorChangeTransition.h */,
+				87B9C27C18DE2E0C00018027 /* IDPSimpleColorPaletteCell.h */,
+				87B9C27D18DE2E0C00018027 /* IDPSimpleColorPaletteController.h */,
+				87B9C27618DE2DFA00018027 /* IDPSimpleColorPaletteCell.m */,
+				87B9C27718DE2DFA00018027 /* IDPSimpleColorPaletteController.m */,
 				872BC2BE18DE149F0034A3FA /* AppDelegate.m */,
 				872BC2C018DE149F0034A3FA /* Main.storyboard */,
 				872BC2C318DE149F0034A3FA /* ViewController.h */,
@@ -262,7 +275,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				872BC2C518DE149F0034A3FA /* ViewController.m in Sources */,
+				87B9C27918DE2DFA00018027 /* IDPSimpleColorPaletteCell.m in Sources */,
 				872BC2BF18DE149F0034A3FA /* AppDelegate.m in Sources */,
+				87B9C27A18DE2DFA00018027 /* IDPSimpleColorPaletteController.m in Sources */,
+				87B9C27818DE2DFA00018027 /* IDPColorChangeTransition.m in Sources */,
 				872BC2BB18DE149F0034A3FA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
