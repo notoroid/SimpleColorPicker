@@ -14,6 +14,9 @@
 - (id) init;
 @property(weak,nonatomic) id<IDPSimpleColorPaletteControllerDelegate> delegate;
 @property(strong,nonatomic) NSArray *colorPatterns;
+
+// Utility methods
++ (void) drawPaletteWithColor:(UIColor *)color size:(CGSize)size;
 @end
 
 @protocol IDPSimpleColorPaletteControllerDelegate <NSObject>

@@ -200,6 +200,32 @@ typedef void (^ColorPalletURenderBlock)(IDPSimpleColorPaletteCell *cell,UIButton
     return [UIColor colorWithRed:red green:green blue:blue alpha:1.0f];
 }
 
++ (void) drawPaletteWithColor:(UIColor *)color size:(CGSize)size
+{
+    //// Color Declarations
+    UIColor* color2 = [UIColor colorWithRed: 0.5 green: 0.5 blue: 0.5 alpha: 1];
+    //                    UIColor* color = [UIColor colorWithRed: 0.657 green: 0 blue: 0 alpha: 1];
+    CGFloat colorHSBA[4];
+    [color getHue: &colorHSBA[0] saturation: &colorHSBA[1] brightness: &colorHSBA[2] alpha: &colorHSBA[3]];
+    
+    UIColor* color3 = [UIColor colorWithHue: colorHSBA[0] saturation: colorHSBA[1] brightness: 0.9 alpha: colorHSBA[3]];
+    
+    //// Oval Drawing
+    UIBezierPath* ovalPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(3.5, 3.5, size.width - 3.5 * 2.0f /*71*/,size.height - 3.5 * 2.0f /*71*/)];
+    [color2 setStroke];
+    ovalPath.lineWidth = 1;
+    [ovalPath stroke];
+    
+    
+    //// Oval 2 Drawing
+    UIBezierPath* oval2Path = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(7.5, 7.5, size.width - 7.5 * 2.0f, size.height - 7.5 * 2.0f)];
+    [color setFill];
+    [oval2Path fill];
+    [color3 setStroke];
+    oval2Path.lineWidth = 1;
+    [oval2Path stroke];
+}
+
 - (void) configureCell:(UITableViewCell *)cell indexPath:(NSIndexPath *)indexPath
 {
     s_revision++;
@@ -227,28 +253,7 @@ typedef void (^ColorPalletURenderBlock)(IDPSimpleColorPaletteCell *cell,UIButton
                 CGContextScaleCTM(context, scale, -scale);
                 UIGraphicsPushContext(context);
                 {
-                    //// Color Declarations
-                    UIColor* color2 = [UIColor colorWithRed: 0.5 green: 0.5 blue: 0.5 alpha: 1];
-//                    UIColor* color = [UIColor colorWithRed: 0.657 green: 0 blue: 0 alpha: 1];
-                    CGFloat colorHSBA[4];
-                    [color getHue: &colorHSBA[0] saturation: &colorHSBA[1] brightness: &colorHSBA[2] alpha: &colorHSBA[3]];
-                    
-                    UIColor* color3 = [UIColor colorWithHue: colorHSBA[0] saturation: colorHSBA[1] brightness: 0.9 alpha: colorHSBA[3]];
-                    
-                    //// Oval Drawing
-                    UIBezierPath* ovalPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(4.5, 3.5, 70, 70)];
-                    [color2 setStroke];
-                    ovalPath.lineWidth = 1;
-                    [ovalPath stroke];
-                    
-                    
-                    //// Oval 2 Drawing
-                    UIBezierPath* oval2Path = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(8.5, 7.5, 62, 62)];
-                    [color setFill];
-                    [oval2Path fill];
-                    [color3 setStroke];
-                    oval2Path.lineWidth = 1;
-                    [oval2Path stroke];
+                    [IDPSimpleColorPaletteController drawPaletteWithColor:color size:iconSize];
                 }
                 UIGraphicsPopContext();
                 

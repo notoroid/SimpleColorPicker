@@ -128,8 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				872BC2BD18DE149F0034A3FA /* AppDelegate.h */,
-				87B9C27518DE2DFA00018027 /* IDPColorChangeTransition.m */,
 				87B9C27B18DE2E0C00018027 /* IDPColorChangeTransition.h */,
+				87B9C27518DE2DFA00018027 /* IDPColorChangeTransition.m */,
 				87B9C27C18DE2E0C00018027 /* IDPSimpleColorPaletteCell.h */,
 				87B9C27D18DE2E0C00018027 /* IDPSimpleColorPaletteController.h */,
 				87B9C27618DE2DFA00018027 /* IDPSimpleColorPaletteCell.m */,
