@@ -203,7 +203,6 @@ typedef void (^ColorPalletURenderBlock)(IDPSimpleColorPaletteCell *cell,UIButton
 + (void) drawPaletteWithColor:(UIColor *)color size:(CGSize)size
 {
     BOOL isWhiteColor = [color isEqual:[UIColor whiteColor]] ? YES : NO;
-    NSLog(@"isWhiteColor=%@", isWhiteColor ? @"YES" : @"NO" );
     
     //// Color Declarations
     UIColor* color2 = [UIColor colorWithRed: 0.5 green: 0.5 blue: 0.5 alpha: 1];
