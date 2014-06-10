@@ -230,9 +230,10 @@ typedef void (^ColorPalletURenderBlock)(IDPSimpleColorPaletteCell *cell,UIButton
 
 - (void) configureCell:(UITableViewCell *)cell indexPath:(NSIndexPath *)indexPath
 {
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     s_revision++;
     NSInteger currentRevision = s_revision;
-    
     
     NSArray *palette = [self selectedPalletWithIndexPath:indexPath];
     
