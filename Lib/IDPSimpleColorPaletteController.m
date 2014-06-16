@@ -191,11 +191,18 @@ typedef void (^ColorPalletURenderBlock)(IDPSimpleColorPaletteCell *cell,UIButton
         /*double*/ blue = ([s_paletteColor[[webColor substringWithRange:NSMakeRange(5, 1)]] doubleValue] * 16
                            + [s_paletteColor[[webColor substringWithRange:NSMakeRange(6, 1)]] doubleValue]) / 255.0f;
     }else if(webColor.length == 4){
-        /*double*/ red = ([s_paletteColor[[webColor substringWithRange:NSMakeRange(1, 1)]] doubleValue] * 16) / 255.0f;
-        /*double*/ green = ([s_paletteColor[[webColor substringWithRange:NSMakeRange(2, 1)]] doubleValue] * 16) / 255.0f;
-        /*double*/ blue = ([s_paletteColor[[webColor substringWithRange:NSMakeRange(3, 1)]] doubleValue] * 16) / 255.0f;
+        /*double*/ red = ([s_paletteColor[[webColor substringWithRange:NSMakeRange(1, 1)]] doubleValue]);
+        red = red * 16 + red;
+        red /= 255.0f;
+        
+        /*double*/ green = ([s_paletteColor[[webColor substringWithRange:NSMakeRange(2, 1)]] doubleValue]);
+        green = green * 16 + green;
+        green /= 255.0f;
+        
+        /*double*/ blue = ([s_paletteColor[[webColor substringWithRange:NSMakeRange(3, 1)]] doubleValue]);
+        blue = blue * 16 + blue;
+        blue /= 255.0f;
     }
-    
     
     return [UIColor colorWithRed:red green:green blue:blue alpha:1.0f];
 }
