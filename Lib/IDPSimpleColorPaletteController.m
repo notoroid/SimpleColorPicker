@@ -43,7 +43,15 @@ static NSDictionary *s_paletteColor = nil;
 
 
 - (IBAction)firedCancel:(id)sender {
-    [_delegate IDPSimpleColorPaletteControllerDidCacel];
+    
+    if( [_delegate respondsToSelector:@selector(simpleColorPaletteControllerDidCacel:)] == YES && [_delegate respondsToSelector:@selector(IDPSimpleColorPaletteControllerDidCacel)] != YES ){
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        [_delegate IDPSimpleColorPaletteControllerDidCacel];
+#pragma clang diagnostic pop
+    }else{
+        [_delegate simpleColorPaletteControllerDidCacel:self];
+    }
 }
 
 - (IBAction)firedColor:(id)sender
@@ -337,7 +345,16 @@ typedef void (^ColorPalletURenderBlock)(IDPSimpleColorPaletteCell *cell,UIButton
                 NSArray *palette = [self selectedPalletWithIndexPath:indexPath];
                 NSString *colorString = palette[begin + index];
                 
-                [_delegate IDPSimpleColorPaletteControllerDidSelectColor:[self colorWithWebColor:colorString] colorString:colorString];
+                
+                if( [_delegate respondsToSelector:@selector(IDPSimpleColorPaletteControllerDidSelectColor:colorString:)] == YES && [_delegate respondsToSelector:@selector(simpleColorPaletteController:didSelectColor:colorString:)] != YES ){
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+                    [_delegate IDPSimpleColorPaletteControllerDidSelectColor:[self colorWithWebColor:colorString] colorString:colorString];
+#pragma clang diagnostic pop
+                }else{
+                    [_delegate simpleColorPaletteController:self didSelectColor:[self colorWithWebColor:colorString] colorString:colorString];
+                }
+                
                 break;
             }
         }

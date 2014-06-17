@@ -118,7 +118,7 @@
 
 #pragma SimpleColorPaletteController delegath method(s)
 
-- (void) IDPSimpleColorPaletteControllerDidSelectColor:(UIColor *)color colorString:colorString
+- (void) simpleColorPaletteController:(IDPSimpleColorPaletteController *)simpleColorPaletteController didSelectColor:(UIColor *)color colorString:(NSString *)colorString
 {
     _color = color;
     _labelColor.textColor = _color;
@@ -129,7 +129,7 @@
     }];
 }
 
-- (void) IDPSimpleColorPaletteControllerDidCacel
+- (void) simpleColorPaletteControllerDidCacel:(IDPSimpleColorPaletteController *)simpleColorPaletteController
 {
     [self dismissViewControllerAnimated:YES completion:^{
         

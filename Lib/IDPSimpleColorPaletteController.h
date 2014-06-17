@@ -20,7 +20,9 @@
 @end
 
 @protocol IDPSimpleColorPaletteControllerDelegate <NSObject>
-
-- (void) IDPSimpleColorPaletteControllerDidSelectColor:(UIColor *)color colorString:(NSString *)colorString;
-- (void) IDPSimpleColorPaletteControllerDidCacel;
+- (void) simpleColorPaletteController:(IDPSimpleColorPaletteController *)simpleColorPaletteController didSelectColor:(UIColor *)color colorString:(NSString *)colorString;
+- (void) simpleColorPaletteControllerDidCacel:(IDPSimpleColorPaletteController *)simpleColorPaletteController;
+@optional
+- (void) IDPSimpleColorPaletteControllerDidSelectColor:(UIColor *)color colorString:(NSString *)colorString DEPRECATED_ATTRIBUTE;
+- (void) IDPSimpleColorPaletteControllerDidCacel DEPRECATED_ATTRIBUTE;
 @end
