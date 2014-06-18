@@ -44,7 +44,7 @@ static NSDictionary *s_paletteColor = nil;
 
 - (IBAction)firedCancel:(id)sender {
     
-    if( [_delegate respondsToSelector:@selector(simpleColorPaletteControllerDidCacel:)] == YES && [_delegate respondsToSelector:@selector(IDPSimpleColorPaletteControllerDidCacel)] != YES ){
+    if( [_delegate respondsToSelector:@selector(IDPSimpleColorPaletteControllerDidCacel)] == YES && [_delegate respondsToSelector:@selector(simpleColorPaletteControllerDidCacel:)] != YES ){
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
         [_delegate IDPSimpleColorPaletteControllerDidCacel];
