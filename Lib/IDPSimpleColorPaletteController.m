@@ -70,6 +70,28 @@ static NSDictionary *s_paletteColor = nil;
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    if( _enabledDeleteColor ){
+        UIView *delateColorView = [[UIView alloc] initWithFrame:CGRectMake(.0f, .0f, self.view.frame.size.width , 80.0f)];
+        delateColorView.opaque = NO;
+        delateColorView.backgroundColor = [UIColor clearColor];
+
+        UIButton *buttonDeleteColor = [[UIButton alloc] initWithFrame:CGRectMake(241.0f, 1.0f, 78.0f, 78.0f)];
+        [delateColorView addSubview:buttonDeleteColor];
+        
+        const CGSize buttonSize = CGSizeMake(78.0f, 78.0f);
+        UIGraphicsBeginImageContextWithOptions(buttonSize, NO, [UIScreen mainScreen].scale);
+        [IDPSimpleColorPaletteController drawDeletePaletteWithSize:buttonSize];
+        UIImage *palletImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        [buttonDeleteColor setBackgroundImage:palletImage forState:UIControlStateNormal];
+            // パレットイメージを生成
+        
+        [buttonDeleteColor addTarget:self action:@selector(firedDeleteColor:) forControlEvents:UIControlEventTouchUpInside];
+        
+        self.tableView.tableHeaderView = delateColorView;
+    }
+    
     // Cellを登録
     [self.tableView registerClass:[IDPSimpleColorPaletteCell class] forCellReuseIdentifier:@"cellColorPalette"];
     // リソースを登録
@@ -318,6 +340,46 @@ typedef void (^ColorPalletURenderBlock)(IDPSimpleColorPaletteCell *cell,UIButton
     CGContextRestoreGState(context);
 }
 
++ (void) drawDeletePaletteWithSize:(CGSize)size
+{
+    //// Color Declarations
+    UIColor* color2 = [UIColor colorWithRed: 0.5 green: 0.5 blue: 0.5 alpha: 1];
+    UIColor* color5 = [UIColor colorWithRed: 0.2 green: 0.2 blue: 0.2 alpha: 1];
+    
+    //// Variable Declarations
+    CGFloat insetOuterEdge = 3.5;
+    CGFloat outerOvalWidth = size.width - insetOuterEdge * 2;
+    CGFloat outerOvalHeight = size.height - insetOuterEdge * 2;
+    CGFloat insetInnerEdge = 7.5;
+    CGFloat innerOvalWidth = size.width - insetInnerEdge * 2;
+    CGFloat innerOvalHeight = size.height - insetInnerEdge * 2;
+    
+    //// Oval Drawing
+    UIBezierPath* ovalPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(insetOuterEdge, insetOuterEdge, outerOvalWidth, outerOvalHeight)];
+    [color2 setStroke];
+    ovalPath.lineWidth = 1;
+    [ovalPath stroke];
+    
+    
+    //// WhiteOval Drawing
+    UIBezierPath* whiteOvalPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(insetInnerEdge, insetInnerEdge, innerOvalWidth, innerOvalHeight)];
+    [UIColor.whiteColor setFill];
+    [whiteOvalPath fill];
+    [UIColor.lightGrayColor setStroke];
+    whiteOvalPath.lineWidth = 1;
+    [whiteOvalPath stroke];
+    
+    
+    //// Text Drawing
+    CGRect textRect = CGRectMake(12, 33, 54, 12);
+    NSMutableParagraphStyle* textStyle = NSMutableParagraphStyle.defaultParagraphStyle.mutableCopy;
+    textStyle.alignment = NSTextAlignmentCenter;
+    
+    NSDictionary* textFontAttributes = @{NSFontAttributeName: [UIFont fontWithName: @"Helvetica-Bold" size: 10], NSForegroundColorAttributeName: color5, NSParagraphStyleAttributeName: textStyle};
+   
+    [NSLocalizedString(@"なし", @"") drawInRect: textRect withAttributes: textFontAttributes];
+}
+
 - (void) configureCell:(UITableViewCell *)cell indexPath:(NSIndexPath *)indexPath
 {
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -393,6 +455,19 @@ typedef void (^ColorPalletURenderBlock)(IDPSimpleColorPaletteCell *cell,UIButton
         UIButton *button = buttons[i-begin];
         [button setBackgroundImage:nil forState:UIControlStateNormal];
         [button removeTarget:self action:@selector(firedSelectPallet:) forControlEvents:UIControlEventTouchUpInside];
+    }
+}
+
+
+- (void) firedDeleteColor:(id)sender
+{
+    if( [_delegate respondsToSelector:@selector(IDPSimpleColorPaletteControllerDidSelectColor:colorString:)] == YES && [_delegate respondsToSelector:@selector(simpleColorPaletteController:didSelectColor:colorString:)] != YES ){
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        [_delegate IDPSimpleColorPaletteControllerDidSelectColor:nil colorString:nil];
+#pragma clang diagnostic pop
+    }else{
+        [_delegate simpleColorPaletteController:self didSelectColor:nil colorString:nil];
     }
 }
 

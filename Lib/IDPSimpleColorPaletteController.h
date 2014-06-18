@@ -14,10 +14,12 @@
 - (id) init;
 @property(weak,nonatomic) id<IDPSimpleColorPaletteControllerDelegate> delegate;
 @property(strong,nonatomic) NSArray *colorPatterns;
+@property(assign,nonatomic) BOOL enabledDeleteColor;
 
 // Utility methods
 + (void) drawPaletteWithColor:(UIColor *)color size:(CGSize)size;
 + (void) drawClearPaletteWithSize:(CGSize)size;
++ (void) drawDeletePaletteWithSize:(CGSize)size;
 @end
 
 @protocol IDPSimpleColorPaletteControllerDelegate <NSObject>

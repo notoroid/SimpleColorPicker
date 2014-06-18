@@ -95,6 +95,7 @@
 {
     IDPSimpleColorPaletteController* colorPaletteController = [[IDPSimpleColorPaletteController alloc] init];
     colorPaletteController.delegate = self;
+    colorPaletteController.enabledDeleteColor = YES;
     
     NSURL *URLWebSafeColor216 = [[NSBundle mainBundle] URLForResource:@"websafecolor216" withExtension:@"plist"];
     NSDictionary *dicWebSafeColor216 = [NSDictionary dictionaryWithContentsOfURL:URLWebSafeColor216];
