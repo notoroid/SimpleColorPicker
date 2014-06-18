@@ -221,26 +221,101 @@ typedef void (^ColorPalletURenderBlock)(IDPSimpleColorPaletteCell *cell,UIButton
     
     //// Color Declarations
     UIColor* color2 = [UIColor colorWithRed: 0.5 green: 0.5 blue: 0.5 alpha: 1];
-    //                    UIColor* color = [UIColor colorWithRed: 0.657 green: 0 blue: 0 alpha: 1];
+//    UIColor* color = [UIColor colorWithRed: 0.659 green: 0 blue: 0 alpha: 1];
     CGFloat colorHSBA[4];
     [color getHue: &colorHSBA[0] saturation: &colorHSBA[1] brightness: &colorHSBA[2] alpha: &colorHSBA[3]];
     
-    UIColor* color3 = isWhiteColor ? [UIColor lightGrayColor] : [UIColor colorWithHue: colorHSBA[0] saturation: colorHSBA[1] brightness: 0.9 alpha: colorHSBA[3]];
+    UIColor* color3 = [UIColor colorWithHue: colorHSBA[0] saturation: colorHSBA[1] brightness: 0.9 alpha: colorHSBA[3]];
+    
+    //// Variable Declarations
+    CGFloat insetOuterEdge = 3.5;
+    CGFloat outerOvalWidth = size.width - insetOuterEdge * 2;
+    CGFloat outerOvalHeight = size.height - insetOuterEdge * 2;
+    CGFloat insetInnerEdge = 7.5;
+    CGFloat innerOvalWidth = size.width - insetInnerEdge * 2;
+    CGFloat innerOvalHeight = size.height - insetInnerEdge * 2;
+    BOOL noWhiteColor = !isWhiteColor;
     
     //// Oval Drawing
-    UIBezierPath* ovalPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(3.5, 3.5, size.width - 3.5 * 2.0f /*71*/,size.height - 3.5 * 2.0f /*71*/)];
+    UIBezierPath* ovalPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(insetOuterEdge, insetOuterEdge, outerOvalWidth, outerOvalHeight)];
     [color2 setStroke];
     ovalPath.lineWidth = 1;
     [ovalPath stroke];
     
     
-    //// Oval 2 Drawing
-    UIBezierPath* oval2Path = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(7.5, 7.5, size.width - 7.5 * 2.0f, size.height - 7.5 * 2.0f)];
-    [color setFill];
-    [oval2Path fill];
-    [color3 setStroke];
-    oval2Path.lineWidth = 1;
-    [oval2Path stroke];
+    if (noWhiteColor)
+    {
+        //// ColorOval Drawing
+        UIBezierPath* colorOvalPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(insetInnerEdge, insetInnerEdge, innerOvalWidth, innerOvalHeight)];
+        [color setFill];
+        [colorOvalPath fill];
+        [color3 setStroke];
+        colorOvalPath.lineWidth = 1;
+        [colorOvalPath stroke];
+    }
+    
+    
+    if (isWhiteColor)
+    {
+        //// WhiteOval Drawing
+        UIBezierPath* whiteOvalPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(insetInnerEdge, insetInnerEdge, innerOvalWidth, innerOvalHeight)];
+        [UIColor.whiteColor setFill];
+        [whiteOvalPath fill];
+        [UIColor.lightGrayColor setStroke];
+        whiteOvalPath.lineWidth = 1;
+        [whiteOvalPath stroke];
+    }
+
+}
+
++ (void) drawClearPaletteWithSize:(CGSize)size
+{
+    //// General Declarations
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    //// Color Declarations
+    UIColor* color2 = [UIColor colorWithRed: 0.5 green: 0.5 blue: 0.5 alpha: 1];
+    UIColor* color4 = [UIColor colorWithRed: 1 green: 0 blue: 0 alpha: 1];
+    
+    //// Variable Declarations
+    CGFloat insetOuterEdge = 3.5;
+    CGFloat outerOvalWidth = size.width - insetOuterEdge * 2;
+    CGFloat outerOvalHeight = size.height - insetOuterEdge * 2;
+    CGFloat insetInnerEdge = 7.5;
+    CGFloat innerOvalWidth = size.width - insetInnerEdge * 2;
+    CGFloat innerOvalHeight = size.height - insetInnerEdge * 2;
+    CGFloat slashEdge = 16.5;
+    CGFloat slashRight = size.width - slashEdge;
+    CGFloat slashBottom = size.height - slashEdge;
+    
+    //// Oval Drawing
+    UIBezierPath* ovalPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(insetOuterEdge, insetOuterEdge, outerOvalWidth, outerOvalHeight)];
+    [color2 setStroke];
+    ovalPath.lineWidth = 1;
+    [ovalPath stroke];
+    
+    
+    //// WhiteOval Drawing
+    UIBezierPath* whiteOvalPath = [UIBezierPath bezierPathWithOvalInRect: CGRectMake(insetInnerEdge, insetInnerEdge, innerOvalWidth, innerOvalHeight)];
+    [UIColor.whiteColor setFill];
+    [whiteOvalPath fill];
+    [UIColor.lightGrayColor setStroke];
+    whiteOvalPath.lineWidth = 1;
+    [whiteOvalPath stroke];
+    
+    
+    //// Bezier 2 Drawing
+    CGContextSaveGState(context);
+    CGContextTranslateCTM(context, 17.01, 17.5);
+    
+    UIBezierPath* bezier2Path = UIBezierPath.bezierPath;
+    [bezier2Path moveToPoint: CGPointMake(0, (slashBottom - 17.5))];
+    [bezier2Path addCurveToPoint: CGPointMake((slashRight - 17.0055983728), -1) controlPoint1: CGPointMake(0.46, (slashBottom - 17.5) - 0.46) controlPoint2: CGPointMake((slashRight - 17.0055983728), -1)];
+    [color4 setStroke];
+    bezier2Path.lineWidth = 1;
+    [bezier2Path stroke];
+    
+    CGContextRestoreGState(context);
 }
 
 - (void) configureCell:(UITableViewCell *)cell indexPath:(NSIndexPath *)indexPath

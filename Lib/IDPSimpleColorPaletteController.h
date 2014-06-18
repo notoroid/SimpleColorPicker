@@ -17,6 +17,7 @@
 
 // Utility methods
 + (void) drawPaletteWithColor:(UIColor *)color size:(CGSize)size;
++ (void) drawClearPaletteWithSize:(CGSize)size;
 @end
 
 @protocol IDPSimpleColorPaletteControllerDelegate <NSObject>
