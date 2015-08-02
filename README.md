@@ -10,13 +10,13 @@ Cocoapods Supported. Please describe the following in your Podfile.
 pod 'SimpleColorPicker', :git => 'https://github.com/notoroid/SimpleColorPicker.git'
 
 ```
-cocoapod install
+pod install
 ```
 
 or 
 
 ```
-cocoapod update
+pod update
 ```
 
 ```
